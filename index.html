@@ -24,13 +24,37 @@
 
     <header>
         <h2 style="text-align: left;">Main Page</h2>        
-        <h4>Under Construction</h4>
+        <nav class="bg-navbar">
+            <a href="#active"><button id="navigationActivePages"> Pages </button></a>
+            <a href="#guides"><button id="navigationGudies">Guides</button></a>
+            <!-- <a href="#resources"><button id="navigationResources">Resources</button></a> -->
+        </nav>
     </header>
     <hr>
     <main>
       <section id="active">
         <h2>Active Pages </h2>
-        <a href="/CTFpage/index.html"><button id="challenges">CTFpage</button></a>
+    
+        <dl id="activepageslist">
+
+            <dt> &nbsp;<a href="/CTFpage/index.html"><button classes="challenges"><strong> CTF Page</strong></button></a></dt>
+            <dd>Devoted to CTF challenges <br><br></dd>
+
+            </dl>
+        
+    </section>
+
+    <section id="guides">
+        <h2>Guides</h2>
+
+        <dl id="guideslist">
+
+            <dt> &nbsp;<a href="/Guides/Python/index.html"><button classes="challenges"><strong> Python </strong></button></a></dt>
+            <dd>A simple Python tutorial <br><br></dd>
+
+            </dl>
+
+
     </section>
     </main>
 
@@ -39,7 +63,7 @@
         <br>
         <hr>
         <p class="footer"><a href="#" style="font-size: 13px;">Back to Top</a>&nbsp;&nbsp; &lt;&lt;&lt; &copy;
-            nikolasfil &gt;&gt;&gt; &nbsp;&nbsp;<a href="index.html" style="font-size: 13px;">Back to home</a></p>
+            nikolasfil &gt;&gt;&gt; &nbsp;&nbsp;<a href="/index.html" style="font-size: 13px;">Back to home</a></p>
     </footer>
 </body>
 
