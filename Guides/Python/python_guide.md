@@ -4,16 +4,21 @@ Competitive Programming SG 2022-2023
 
 This is a very short and simple python tutorial, just the very basics to be able to follow in the meetings.
 
+It follows the turotial on python of Bro Code:
+https://www.youtube.com/watch?v=XKHEtdqhLK8
+
+Of course this is an introductory documentation.
+For more information, it is best to visit the python documentation.
+
+
 Installing Python : https://www.python.org/downloads/
 
 Installing editors : 
-  
-  VSCode : https://code.visualstudio.com/docs/python/python-tutorial
-  
-  Pycharm : https://www.jetbrains.com/help/pycharm/installation-guide.html
-  
-  juypyter-notebook : https://jupyter.org/install
+    VSCode : https://code.visualstudio.com/docs/python/python-tutorial
+    Pycharm : https://www.jetbrains.com/help/pycharm/installation-guide.html
+    juypyter-notebook : https://jupyter.org/install
     
+
 
 Let's start with something simple, as variables
 
@@ -450,36 +455,6 @@ for i in range(1,21):
     
 ```
 
-
-    -------------------------------------------------------------------------
-
-    KeyboardInterrupt                       Traceback (most recent call last)
-
-    ~\AppData\Local\Temp\ipykernel_6120\2652905226.py in <module>
-          1 while True:
-    ----> 2     name = input('Name: ')
-          3 
-    
-
-    c:\users\nikol\pycharmprojects\computer_organization\venv_pyinstaller\lib\site-packages\ipykernel\kernelbase.py in raw_input(self, prompt)
-       1179             self._parent_ident["shell"],
-       1180             self.get_parent("shell"),
-    -> 1181             password=False,
-       1182         )
-       1183 
-    
-
-    c:\users\nikol\pycharmprojects\computer_organization\venv_pyinstaller\lib\site-packages\ipykernel\kernelbase.py in _input_request(self, prompt, ident, parent, password)
-       1217             except KeyboardInterrupt:
-       1218                 # re-raise KeyboardInterrupt, to truncate traceback
-    -> 1219                 raise KeyboardInterrupt("Interrupted by user") from None
-       1220             except Exception:
-       1221                 self.log.warning("Invalid Message:", exc_info=True)
-    
-
-    KeyboardInterrupt: Interrupted by user
-
-
 Lists: 
 
 used to store multiple items in a single variable 
@@ -586,7 +561,364 @@ Set
 
 Collections which is unordered, unidexed
 No duplicate values are allowed. 
-uses {}
+uses {} to initiate an empty set
+
+Can be faster than a list to see if something is within a list 
+
+
+```python
+objects = {}
+objects = {'headphones','laptop','phone'}
+
+for x in objects : 
+    print(x)
+
+#It might not be the same order that was inserted 
+print(objects)
+
+new_objects = {'plates','book','book','phone','phone','phone','phone'}
+print(new_objects)
+
+objects.add('charger')
+objects.remove('headphones')
+print(objects)
+
+#adding one set to another 
+new_objects.update(objects)
+print(new_objects)
+
+new_objects = {'keys','napkin','earbuds'}
+objects = {'laptop','headphones','phone'}
+# Joining sets
+common_objects=new_objects.union(objects)
+print(common_objects)
+
+objects = {'keys','hat','rings','phone'}
+# Compare differences
+print(common_objects.difference(objects))
+
+# Compare similarities 
+print(common_objects.intersection(objects))
+
+```
+
+
+Dictionaries 
+
+A changeable, unordered collection of unique key: value pairs.
+It uses hashing, that's why they are so fast.
+
+dictionary\[key\]=value
+
+
+
+```python
+am = {'Bob':1022,'Martha':1032,'Stuart':1055}
+
+print(am['Bob'])
+
+# Setting/Changing values of specific keys
+am['Bob'] = 1021
+print(am['Bob'])
+
+# The key has to exist in the dictionary 
+print(am.get('Bob'))
+# iF the key doesn't exist in the dictionary, returns None
+print(am.get('Sully'))
+
+
+for key in am.keys():
+    print(key)
+
+for value in am.values():
+    print(value)
+    
+for items in am.items():
+#     items returns a tuple (key, value)
+    print(items)
+    
+# removing 
+am.pop('Bob')
+# clear
+am.clear()
+```
+
+
+Index Operator \[\]
+
+Gives access to a sequence's element (str, list, tuples)
+
+
+
+
+```python
+
+name = 'milo Thatch'
+if name[0].islower():
+    name = name.capitalize()
+
+first_name = name[0:4]
+last_name = name[5:].capitalize()
+print(first_name,last_name)
+```
+
+
+```python
+# we can access negative indexes, counting from the end -1 .. 
+last_character = 'this is a str'[-1]
+print(last_character)
+```
+
+
+Functions
+
+A block of code that is executed only when it is called (invoked)
+
+Needs the def keyword, a name for the function followed by parenthesis() and inside the parenthesis could be some arguments(parameters) that the function needs 
+Arguments can be whatever data types we want.
+
+The commands inside the function are indented , like the if-else,for loops, while loops commands
+
+The arguments can have a default value as well. With default values, functions can be called without any parameters given
+
+
+
+```python
+
+def hello():
+    print('hello')
+
+hello()    
+    
+def greetings(name):
+    print('Greetings '+str(name))
+
+greetings(input())
+
+def greetings(name='Unknown'):
+    print("Greetings "+name)
+greetings()
+
+def typing(name,age,hobbies):
+    print(type(name),type(age),type(hobbies))
+
+typing('Milo',23,['Linguistics','Exploration','Boiler Master'])
+```
+
+
+Return Statement 
+
+Functions send python values/objects back to the caller 
+These values/objects are known as the function's return value 
+
+You can either print them directly to the console, or store them in variables
+
+
+
+```python
+def adder(num1,num2):
+    return num1+num2
+
+print(adder(3,8))
+
+variable = adder(12,3)
+
+```
+
+
+Keyword arguments
+
+Arguments preceded by and identifier when we pass them to a function.
+The order of the arguments doesn't matter, unlike positional Argumnets Python knwons the names of the arguments that our function receives 
+
+
+
+```python
+
+def typing(name,age,hobbies):
+    print(type(name),type(age),type(hobbies))
+
+typing('Milo',23,['Linguistics','Exploration','Boiler Master'])
+
+typing(age=23,hobbies=['Dead Languages'],name='Milo')
+# No matter that the order has changed, 
+# it still displays it with the order we have coded it to  
+
+```
+
+
+Nested Function calls 
+
+function calls inside other function calls 
+Innermost function calls are resolved first 
+Returned Value is used as argument for the next outer function 
+
+
+
+
+```python
+num = input('Whole Positive Number')
+num = float(num)
+num = abs(num)
+num = round(num)
+print(num)
+
+print(round(abs(float(input('Whole Positive Number')))))
+
+```
+
+
+Scope 
+The region that a variable is recognized 
+A variable is only available from inside the region it is created 
+A global and locally scoped versions of a variable can be created 
+
+Python uses the LEGB rule 
+L = Local 
+E = Enclosing 
+G = Global 
+B = Built-in 
+
+
+
+```python
+
+def display_name():
+    name = 'Milo' # local
+    print(name)
+
+# print(name) is going to raise error
+name = 'Thatcher'
+print(name)
+
+```
+
+
+```python
+name = 'Milo' # global
+def display_name():
+    print(name)
+    name = 'Thatch' #local
+    print(name)
+print(name)
+```
+
+
+*args 
+
+Parameter that will pack all arguments into a tuple 
+
+args can be named whatever you want, the * before is that does all the job
+
+
+```python
+
+def add(*nums):
+    s = 0 
+    for i in nums:
+        s+=i
+    return s 
+
+print(add(0,1,2,3,4,5,6,7,8))
+```
+
+
+\**kwargs
+Packs all arhuments into a dictionary, can accept a varying amount of keyword arguments 
+
+
+
+
+```python
+
+def hello(**name):
+    print('Hello '+name['first'] +' ' + name['middle'] +' ' + name['last'])
+
+hello(first='Milo',middle='G.', last='Thatcher')
+
+def hello(**names):
+    print('Hello',end=' ')
+    for key,value in names.items():
+        print(value,end=' ')
+hello(first='Milo',middle='G.', last='Thatcher')
+
+```
+
+
+Format method 
+
+str.format() 
+A method available for strings , 
+It is an optional method that gives users more control when displaying output
+
+{} is a place holder 
+In format it is ordered 
+
+{number} will place the index_number item from the format 
+
+
+'{Argument}'.format(argument=value)
+
+
+
+```python
+
+animal = 'cow'
+item = 'moon'
+
+print('The {} jumped over the {}'.format(animal,item))
+print('The {1} jumped over the {0}'.format(animal,item))
+
+print('The {animal} jumped over the {location}'.format(location='moon',animal='cow'))
+
+```
+
+Adding some padding 
+{:after} 
+
+
+```python
+print('{:10} see ?'.format('Now You'))
+
+# left align
+print('{:<10} see ?'.format('Now You'))
+
+# right align
+print('{:>10} see ?'.format('Now You'))
+
+# Center align
+print('{:^10} see ?'.format('Now You'))
+
+print('{name:^10}'.format(name = 'Milo Thatch'))
+```
+
+formating numbers 
+
+
+
+```python
+number = 3.1415926535
+print('The number pi is {:.3f}'.format(number))
+
+number = 5
+# binary representation
+print('The binary is {:b}'.format(number))
+print('The hex is {:X}'.format(number))
+print('The oct is {:o}'.format(number))
+print('The scientific number is {:E}'.format(number))
+
+```
+
+
+Power strings 
+
+
+
+```python
+
+```
+
+Random Numbers
 
 
 ```python
@@ -594,18 +926,40 @@ uses {}
 ```
 
 
+Exception : 
+
+Events detected during execution that interrupts the flow of a program
+
+We use a try block to handle code that can be dangerous 
+
 
 
 ```python
-
+try:
+    n = int(input('Enter A number:'))
+    d = int(input('Enter A number'))
+    result = n /d
+except ZeroDivisionError:
+#     We can look out for specific errors
+    print("Can't divide by zero")
+except ValueError:
+    print('Enter only numbers')
+except Exception as e : 
+#     or we can simply see the error without disrupting the 
+#     flow of our program
+#     e is the exception that was raised 
+    print(e)
+    
+else:
+#     this runs if no exceptions are occured
+    print(result)
+finally:
+#     runs at the end of try except regardless of 
+#     the rest
+    print('This was division')
+    
 ```
 
-
-
-
-```python
-
-```
 
 
 
